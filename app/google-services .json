@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "716250203816",
+    "project_id": "newsfresh-9a508",
+    "storage_bucket": "newsfresh-9a508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716250203816:android:668fbbe32a02a107c1e49d",
+        "android_client_info": {
+          "package_name": "com.example.newsfresh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716250203816-fpfegld87tkb6usb9llallqd1jjodrbd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNBJpcYMx2t0xFnmQ71la3Eg86KznahEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716250203816-2prauh1n5p8p352v9dubg528mjecu4nf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
