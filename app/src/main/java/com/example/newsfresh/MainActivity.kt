@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
         val recyclerView= findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager= LinearLayoutManager(this)
         fetchData(query = String())
+
         mAdapter = NewsListAdapter(this)
         recyclerView.adapter=mAdapter
         val searchView: SearchView = findViewById<SearchView>(R.id.SearchView)
@@ -113,19 +114,28 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
 
     override fun onItemClicked(item: News) {
         //val url = "https://developers.android.com"
-        currentNewsUrl = item.url
+//        currentNewsUrl = item.url
+//        currentNewsType = item.title
         val intent = CustomTabsIntent.Builder().build()
         intent.launchUrl(this@MainActivity, Uri.parse(item.url))
 
     }
 
-    fun shareNews(view: View) {
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type="text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT,"Hey, Checkout this amazing $currentNewsType News from $currentNewsUrl")
-        val chooser= Intent.createChooser(intent,"Share using...")
-        startActivity(chooser)
-    }
-
+//    fun shareNews(view: View) {
+//        if (currentNewsUrl.isNotEmpty() && currentNewsType.isNotEmpty()) {
+//        val intent = Intent(Intent.ACTION_SEND)
+//        intent.type="text/plain"
+//        intent.putExtra(Intent.EXTRA_TEXT,"Hey, Checkout this amazing $currentNewsType News from $currentNewsUrl")
+//        val chooser= Intent.createChooser(intent,"Share using...")
+//        startActivity(chooser)
+//    }
+//        }
+override fun onShareButtonClicked(item: News) {
+    val intent = Intent(Intent.ACTION_SEND)
+    intent.type = "text/plain"
+    intent.putExtra(Intent.EXTRA_TEXT, "Hey, check out this amazing news: ${item.title}. Read more at ${item.url}")
+    val chooser = Intent.createChooser(intent, "Share using...")
+    startActivity(chooser)
+}
 
 }

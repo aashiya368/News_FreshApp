@@ -4,6 +4,7 @@ import android.view.OnReceiveContentListener
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -15,9 +16,11 @@ class NewsListAdapter(private val listener: NewsItemClicked) : RecyclerView.Adap
       val viewHolder=NewsViewHolder(view)
         view.setOnClickListener {
             listener.onItemClicked(items[viewHolder.adapterPosition])
-
         }
-        return viewHolder
+        view.findViewById<Button>(R.id.shareButton).setOnClickListener {
+            listener.onShareButtonClicked(items[viewHolder.adapterPosition])
+        }
+        return  viewHolder
     }
 
     override fun getItemCount(): Int {
@@ -45,4 +48,5 @@ class NewsViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
 }
 interface NewsItemClicked{
     fun onItemClicked(item:News)
+    fun onShareButtonClicked(item: News)
 }
